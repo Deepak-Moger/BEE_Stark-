@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.20)
+project(phantomos_input LANGUAGES CXX)
+
+add_library(phantom_input SHARED phantom_input.cpp)
+target_compile_features(phantom_input PRIVATE cxx_std_17)
+target_compile_definitions(phantom_input PRIVATE PHANTOM_INPUT_EXPORTS)
+if (WIN32)
+  target_link_libraries(phantom_input PRIVATE user32)
+elseif(APPLE)
+  target_link_libraries(phantom_input PRIVATE "ApplicationServices.framework")
+elseif(UNIX)
+  target_compile_options(phantom_input PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+set_target_properties(phantom_input PROPERTIES OUTPUT_NAME "phantom_input")

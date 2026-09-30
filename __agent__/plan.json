@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "title": "Confirm why MediaPipe 0.10.35 lacks legacy solutions",
+      "status": "done"
+    },
+    {
+      "title": "Pin the project to MediaPipe 0.10.21",
+      "status": "done"
+    },
+    {
+      "title": "Give commands to reinstall and verify the compatible API",
+      "status": "done"
+    }
+  ],
+  "updated_at": "2026-09-30T09:39:20.210Z",
+  "session_id": "01a0f197-e584-73e4-afe3-47a244420774"
+}

@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "phantomos-quantum"
+version = "0.1.0"
+description = "A safety-first spatial interaction engine for hands-free desktop control."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "PhantomOS Quantum contributors" }]
+dependencies = []
+
+[project.optional-dependencies]
+vision = [
+  "opencv-python>=4.9",
+  "mediapipe==0.10.21",
+  "onnxruntime>=1.18",
+]
+ui = ["PyQt6>=6.7"]
+audio = ["numpy>=1.26", "sounddevice>=0.4"]
+voice = ["onnxruntime>=1.18", "numpy>=1.26"]
+dev = ["pytest>=8.2", "pytest-asyncio>=0.23", "ruff>=0.6", "mypy>=1.11"]
+all = [
+  "opencv-python>=4.9",
+  "mediapipe==0.10.21",
+  "onnxruntime>=1.18",
+  "PyQt6>=6.7",
+  "numpy>=1.26",
+  "sounddevice>=0.4",
+]
+
+[project.scripts]
+phantomos = "phantomos_quantum.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/phantomos_quantum"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_ignores = true
